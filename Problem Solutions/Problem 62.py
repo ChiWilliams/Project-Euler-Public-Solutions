@@ -10,6 +10,7 @@ flag = True
 curr_cube_len = 1
 candidates = []
 answer = 0
+num_permutations = 5
 
 while flag:
     cube = str(i**3)
@@ -29,9 +30,9 @@ while flag:
     #We now keep track how much each digit combination shows up
     if digits in dict:
         dict[digits][0] += 1
-        if dict[digits][0] == 5:
+        if dict[digits][0] == num_permutations:
             candidates.append(dict[digits][1]**3)
-        if dict[digits][0] == 6:
+        if dict[digits][0] == num_permutations+1:
             candidates.remove(dict[digits][1]**3)
     else:
         dict[digits] = [1,i]
